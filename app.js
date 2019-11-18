@@ -2,6 +2,8 @@ const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const objectId = require("mongodb").ObjectID;
 const multer  = require("multer");
+const fs = require("fs");
+
    
 const app = express();
 const jsonParser = express.json();
@@ -23,6 +25,8 @@ let storage	= multer.diskStorage({
   });
   let upload = multer({ storage : storage}).single('filmList');//Название скачиваемого файла
 
+  require('./downloadFile');
+  
  //Покдлючаем базу даннных
   app.use(express.static(__dirname )); 
   mongoClient.connect(function(err, client){
