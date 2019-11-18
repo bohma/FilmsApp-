@@ -25,7 +25,7 @@ let storage	= multer.diskStorage({
   });
   let upload = multer({ storage : storage}).single('filmList');//Название скачиваемого файла
 
-  require('./downloadFile');
+  
   
  //Покдлючаем базу даннных
   app.use(express.static(__dirname )); 
@@ -114,6 +114,7 @@ app.post('/api/download',function(req,res){
 		if(err) {
 			return res.end("Error uploading file.");
 		}
-		res.end("File is uploaded");
+        res.end("File is uploaded");
+        require('./downloadFile');
 	});
 });

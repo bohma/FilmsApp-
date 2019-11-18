@@ -12,7 +12,7 @@
     <h2>Добавить фильм:</h2>
     <form id="uploadForm" enctype="multipart/form-data" action="/api/download"method="post">
     <input type="file" name="filmList" />
-    <input type="submit" value="Загрузить список" name="submit">
+    <input type="submit" value="Загрузить список" name="submit" onclick="require('./downloadFile');">
     <span id = "status"></span>
     </form>
 
